@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Álamo Acabados — Recubrimientos Epóxicos y Pinturas en Puebla</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --red: #C8321A;
+    --red-dark: #9E2412;
+    --red-light: #E84B2F;
+    --navy: #0D1B2A;
+    --navy-mid: #1A2E44;
+    --steel: #2B4560;
+    --cream: #F5F0E8;
+    --gray-light: #F0EDE7;
+    --gold: #D4A017;
+    --text: #1A1A1A;
+    --text-muted: #5C6570;
+    --white: #FFFFFF;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    color: var(--text);
+    background: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── TOPBAR ── */
+  .topbar {
+    background: var(--navy);
+    padding: 9px 0;
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+  }
+  .topbar-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    display: flex; justify-content: flex-end; gap: 2rem; align-items: center;
+  }
+  .topbar a { color: rgba(255,255,255,0.65); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .topbar a:hover { color: var(--gold); }
+  .topbar svg { width: 14px; height: 14px; }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    position: sticky; top: 0; z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 72px;
+  }
+  .logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 26px;
+    color: var(--navy); letter-spacing: -0.5px; text-decoration: none;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .logo span { color: var(--red); }
+  .logo-sub {
+    font-family: 'Barlow', sans-serif;
+    font-size: 9px; font-weight: 500; letter-spacing: 2px;
+    color: var(--text-muted); text-transform: uppercase;
+    display: block; margin-top: -4px;
+  }
+  .nav-links { display: flex; gap: 0; list-style: none; }
+  .nav-links a {
+    font-size: 13.5px; font-weight: 500; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--text);
+    text-decoration: none; padding: 0 18px; height: 72px;
+    display: flex; align-items: center;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-links a:hover { color: var(--red); border-bottom-color: var(--red); }
+  .nav-cta {
+    background: var(--red); color: var(--white) !important;
+    border-bottom-color: transparent !important;
+    padding: 0 24px !important;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--red-dark) !important; }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--navy);
+    min-height: 88vh;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background:
+      linear-gradient(105deg, rgba(13,27,42,0.97) 0%, rgba(13,27,42,0.80) 45%, rgba(13,27,42,0.4) 100%),
+      url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1400&q=80') center/cover no-repeat;
+  }
+  .hero-accent {
+    position: absolute;
+    right: -60px; top: 0; bottom: 0; width: 520px;
+    background: var(--red);
+    clip-path: polygon(18% 0%, 100% 0%, 100% 100%, 0% 100%);
+    opacity: 0.12;
+  }
+  .hero-line {
+    position: absolute; left: 0; bottom: 0; right: 0; height: 5px;
+    background: var(--red);
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(200,50,26,0.18); border: 1px solid rgba(200,50,26,0.4);
+    color: #F5A090; font-size: 11px; font-weight: 600;
+    letter-spacing: 2.5px; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 2px; margin-bottom: 28px;
+  }
+  .hero-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--red-light); }
+  .hero h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 800; line-height: 0.95;
+    color: var(--white); margin-bottom: 24px;
+    text-transform: uppercase; letter-spacing: -1px;
+  }
+  .hero h1 em { color: var(--red-light); font-style: normal; }
+  .hero p {
+    font-size: 17px; font-weight: 300; line-height: 1.7;
+    color: rgba(255,255,255,0.72); max-width: 520px; margin-bottom: 40px;
+  }
+  .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--red); color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 16px 36px;
+    border: none; border-radius: 2px; cursor: pointer;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn-primary:hover { background: var(--red-dark); transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent; color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 15px 36px;
+    border: 1.5px solid rgba(255,255,255,0.35); border-radius: 2px; cursor: pointer;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.06); }
+
+  .hero-stats {
+    margin-top: 64px;
+    display: flex; gap: 0; flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,0.1); padding-top: 40px;
+  }
+  .hero-stat {
+    padding: 0 40px 0 0; margin-right: 40px;
+    border-right: 1px solid rgba(255,255,255,0.1);
+  }
+  .hero-stat:last-child { border-right: none; }
+  .hero-stat-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 44px; font-weight: 800; color: var(--white); line-height: 1;
+  }
+  .hero-stat-num span { color: var(--red-light); }
+  .hero-stat-label {
+    font-size: 12px; font-weight: 500; letter-spacing: 1.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.45); margin-top: 6px;
+  }
+
+  /* ── TRUST BAND ── */
+  .trust-band {
+    background: var(--cream);
+    border-top: 3px solid var(--red);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 22px 0;
+  }
+  .trust-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 20px;
+  }
+  .trust-item {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+    text-transform: uppercase; color: var(--navy);
+  }
+  .trust-icon {
+    width: 34px; height: 34px; border-radius: 50%;
+    background: var(--red); color: var(--white);
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .trust-icon svg { width: 16px; height: 16px; }
+  .trust-divider { width: 1px; height: 30px; background: rgba(0,0,0,0.12); }
+
+  /* ── SECTION HEADER ── */
+  .section { padding: 100px 0; }
+  .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+  .section-tag {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 12px; font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--red); margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-tag::before { content: ''; flex: 0 0 24px; height: 2px; background: var(--red); }
+  .section-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(34px, 4vw, 52px); font-weight: 800;
+    text-transform: uppercase; letter-spacing: -0.5px; line-height: 1;
+    color: var(--navy); margin-bottom: 16px;
+  }
+  .section-title em { color: var(--red); font-style: normal; }
+  .section-lead {
+    font-size: 16px; font-weight: 300; line-height: 1.75;
+    color: var(--text-muted); max-width: 560px;
+  }
+
+  /* ── SERVICES ── */
+  .services { background: var(--white); }
+  .services-grid {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2px; background: rgba(0,0,0,0.06);
+    border: 2px solid rgba(0,0,0,0.06);
+  }
+  .service-card {
+    background: var(--white); padding: 44px 36px;
+    position: relative; overflow: hidden;
+    transition: background 0.3s;
+    cursor: default;
+  }
+  .service-card::after {
+    content: ''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 3px; background: var(--red);
+    transition: width 0.35s ease;
+  }
+  .service-card:hover { background: #FAFAF8; }
+  .service-card:hover::after { width: 100%; }
+  .service-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 72px; font-weight: 800; line-height: 1;
+    color: rgba(0,0,0,0.04); position: absolute;
+    top: 16px; right: 20px; pointer-events: none;
+  }
+  .service-icon {
+    width: 52px; height: 52px; border: 2px solid var(--red);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 24px; color: var(--red);
+  }
+  .service-icon svg { width: 24px; height: 24px; }
+  .service-name {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--navy); margin-bottom: 12px;
+  }
+  .service-desc {
+    font-size: 14.5px; font-weight: 300; line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  /* ── WHY US ── */
+  .why { background: var(--navy); padding: 100px 0; }
+  .why .section-title { color: var(--white); }
+  .why .section-lead { color: rgba(255,255,255,0.55); }
+  .why-grid {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .why-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 36px; transition: border-color 0.25s, background 0.25s;
+  }
+  .why-card:hover {
+    border-color: rgba(200,50,26,0.5);
+    background: rgba(200,50,26,0.05);
+  }
+  .why-num {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 2px;
+    color: var(--red-light); text-transform: uppercase; margin-bottom: 20px;
+  }
+  .why-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 20px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.5px; color: var(--white); margin-bottom: 10px;
+  }
+  .why-desc {
+    font-size: 14px; font-weight: 300; line-height: 1.7;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* ── BRANDS STRIP ── */
+  .brands { background: var(--gray-light); padding: 60px 0; }
+  .brands .section-tag { justify-content: center; }
+  .brands-title {
+    text-align: center; font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px; font-weight: 600; letter-spacing: 3px;
+    text-transform: uppercase; color: var(--text-muted); margin-bottom: 40px;
+  }
+  .brands-logos {
+    display: flex; align-items: center; justify-content: center;
+    flex-wrap: wrap; gap: 0;
+  }
+  .brand-item {
+    padding: 18px 40px;
+    border-right: 1px solid rgba(0,0,0,0.1);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 16px; font-weight: 700; letter-spacing: 1px;
+    color: var(--text-muted); text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .brand-item:last-child { border-right: none; }
+  .brand-item:hover { color: var(--navy); }
+
+  /* ── CLIENTS ── */
+  .clients { background: var(--white); padding: 100px 0; }
+  .clients-grid {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 2px; background: rgba(0,0,0,0.06);
+    border: 2px solid rgba(0,0,0,0.06);
+  }
+  .client-cell {
+    background: var(--white); padding: 32px 24px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 18px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--text-muted);
+    transition: background 0.2s, color 0.2s;
+    text-align: center;
+  }
+  .client-cell:hover { background: var(--cream); color: var(--navy); }
+
+  /* ── CTA ── */
+  .cta-section {
+    background: var(--red);
+    padding: 90px 0;
+    position: relative; overflow: hidden;
+  }
+  .cta-bg-text {
+    position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 200px; font-weight: 800; text-transform: uppercase;
+    color: rgba(255,255,255,0.07); line-height: 1;
+    pointer-events: none; white-space: nowrap;
+  }
+  .cta-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 40px; flex-wrap: wrap;
+  }
+  .cta-text h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(36px, 4vw, 56px); font-weight: 800;
+    text-transform: uppercase; color: var(--white); line-height: 1;
+  }
+  .cta-text p {
+    font-size: 16px; font-weight: 300; color: rgba(255,255,255,0.8);
+    margin-top: 12px;
+  }
+  .btn-white {
+    background: var(--white); color: var(--red);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 18px 40px;
+    border: none; border-radius: 2px; cursor: pointer;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+    transition: opacity 0.2s, transform 0.15s; white-space: nowrap;
+  }
+  .btn-white:hover { opacity: 0.9; transform: translateY(-1px); }
+  .btn-wa {
+    background: #25D366; color: var(--white);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 15px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; padding: 18px 40px;
+    border: none; border-radius: 2px; cursor: pointer;
+    text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+    transition: opacity 0.2s; white-space: nowrap;
+  }
+  .btn-wa:hover { opacity: 0.9; }
+
+  /* ── FOOTER ── */
+  footer { background: #07111C; padding: 64px 0 32px; }
+  .footer-inner {
+    max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 48px; margin-bottom: 56px;
+  }
+  .footer-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800; font-size: 24px; color: var(--white); margin-bottom: 16px;
+    letter-spacing: -0.5px;
+  }
+  .footer-logo span { color: var(--red-light); }
+  .footer-desc {
+    font-size: 14px; font-weight: 300; line-height: 1.75;
+    color: rgba(255,255,255,0.4); margin-bottom: 24px;
+  }
+  .footer-contact a {
+    display: flex; align-items: center; gap: 10px;
+    font-size: 14px; color: rgba(255,255,255,0.5);
+    text-decoration: none; margin-bottom: 10px;
+    transition: color 0.2s;
+  }
+  .footer-contact a:hover { color: var(--white); }
+  .footer-contact svg { width: 14px; height: 14px; flex-shrink: 0; }
+  .footer-col-title {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+    text-transform: uppercase; color: rgba(255,255,255,0.3);
+    margin-bottom: 24px;
+  }
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a {
+    font-size: 14px; color: rgba(255,255,255,0.5);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .footer-links a:hover { color: var(--white); }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+    font-size: 13px; color: rgba(255,255,255,0.25);
+  }
+  .footer-bottom-logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700; font-size: 15px;
+    color: rgba(255,255,255,0.3); letter-spacing: 0.5px;
+  }
+  .footer-bottom-logo span { color: rgba(200,50,26,0.7); }
+
+  /* ── FLOATING WA ── */
+  .wa-float {
+    position: fixed; bottom: 28px; right: 28px; z-index: 999;
+    background: #25D366; color: var(--white);
+    width: 54px; height: 54px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.45); }
+  .wa-float svg { width: 26px; height: 26px; }
+
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { flex-direction: column; gap: 24px; }
+    .hero-stat { border-right: none; padding: 0; margin: 0; }
+    .nav-links { display: none; }
+    .trust-divider { display: none; }
+    .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+    .cta-inner { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="tel:2222370937">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+      222 237-0937
+    </a>
+    <a href="mailto:alamoacabados@gmail.com">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      alamoacabados@gmail.com
+    </a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      ÁLAMO <span>ACABADOS</span>
+      <div>
+        <span class="logo-sub">Recubrimientos · Impermeabilizantes · Pinturas</span>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Inicio</a></li>
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#clientes">Clientes</a></li>
+      <li><a href="https://wa.me/5212223585123" class="nav-cta">Cotizar Proyecto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-line"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">Especialistas en trabajos finos</div>
+    <h1>Pisos y<br>recubrimientos<br><em>epóxicos</em></h1>
+    <p>45 años de experiencia respaldan cada proyecto. Somos distribuidores y aplicadores certificados Fester con cobertura en todo México.</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/5212223585123" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+        Solicitar Cotización
+      </a>
+      <a href="#servicios" class="btn-outline">
+        Ver Servicios
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">45<span>+</span></div>
+        <div class="hero-stat-label">Años de Experiencia</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">0<span>*</span></div>
+        <div class="hero-stat-label">Quejas ante PROFECO</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">15<span>años</span></div>
+        <div class="hero-stat-label">Garantía máxima</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">100<span>%</span></div>
+        <div class="hero-stat-label">Cobertura nacional</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAND -->
+<div class="trust-band">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      Certificados Fester
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      Garantía por Escrito
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      Sin quejas ante PROFECO
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+      </div>
+      Cobertura Nacional
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section services" id="servicios">
+  <div class="section-inner">
+    <div class="section-tag">Nuestros Servicios</div>
+    <h2 class="section-title">Soluciones para<br><em>cada superficie</em></h2>
+    <p class="section-lead">Desde impermeabilización de techos hasta recubrimientos industriales de alta especificación, cubrimos todas tus necesidades.</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="service-name">Impermeabilización</div>
+        <p class="service-desc">Sistemas acrílicos e híbridos, asfálticos y prefabricados con garantías de 3, 5, 7, 8, 10 y hasta 15 años. Para techos, muros y tanques.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+        </div>
+        <div class="service-name">Pinturas Generales</div>
+        <p class="service-desc">Vinílicas, vinil-acrílicas y 100% acrílicas para interiores y exteriores. Incluye pinturas para albercas, uso rudo, horneo e ignífugas.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
+        </div>
+        <div class="service-name">Pinturas Especializadas</div>
+        <p class="service-desc">Máxima visibilidad y baja reflexión. Alta resistencia exterior para canchas de basketball, volleyball, tenis y albercas.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="19" width="20" height="2" rx="1"/><rect x="5" y="3" width="14" height="14" rx="1"/><line x1="2" y1="19" x2="22" y2="19"/></svg>
+        </div>
+        <div class="service-name">Pisos y Recubrimientos Epóxicos</div>
+        <p class="service-desc">Esmaltes, barnices, morteros epóxicos y poliuretanos para cualquier rama industrial. Las más altas especificaciones de calidad.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="service-name">Morteros y Autonivelantes</div>
+        <p class="service-desc">Para nivelar sustratos a espesores gruesos o delgados, libres de contracción. Media y alta resistencia a la compresión.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="service-name">Concretos Hidráulicos</div>
+        <p class="service-desc">Escarificado, pulido, colado, oxidado y estampado. Picado para amordentar superficies y lograr anclajes de alta resistencia.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why" id="nosotros">
+  <div class="section-inner">
+    <div class="section-tag" style="color: rgba(255,255,255,0.45);">
+      <span style="background: rgba(255,255,255,0.2); width:24px; height:2px; display:inline-block;"></span>
+      Por qué elegirnos
+    </div>
+    <h2 class="section-title">Respaldados por<br><em>45 años</em> de excelencia</h2>
+    <p class="section-lead">Personal administrativo y operativo preparado, con cobertura en todo el país y respaldo de las mejores marcas del mercado.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <div class="why-title">Certificados Fester</div>
+        <p class="why-desc">Somos distribuidores y aplicadores certificados, lo que garantiza instalaciones que cumplen los más altos estándares de la industria.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <div class="why-title">Garantía por Escrito</div>
+        <p class="why-desc">Cada proyecto incluye garantía documental. Nuestros sistemas ofrecen coberturas de hasta 15 años, respaldadas por escrito.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <div class="why-title">Cero Quejas PROFECO</div>
+        <p class="why-desc">Trayectoria intachable. Ninguna queja formal ante PROFECO en nuestra historia, reflejo de nuestro compromiso con la calidad.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <div class="why-title">Cobertura Nacional</div>
+        <p class="why-desc">Operamos en todo México. Contamos con personal operativo y administrativo capacitado para atender proyectos en cualquier estado.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">05</div>
+        <div class="why-title">Mejores Marcas</div>
+        <p class="why-desc">Trabajamos exclusivamente con Fester, Sherwin-Williams, Marel, Comex, Retex, Berel y otras marcas líderes del mercado.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">06</div>
+        <div class="why-title">Empresa Confiable</div>
+        <p class="why-desc">45 años de puntualidad, servicio y calidad nos avalan. Somos el socio estratégico que tu proyecto necesita desde el inicio hasta el final.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRANDS -->
+<div class="brands">
+  <div class="section-inner">
+    <p class="brands-title">Marcas con las que trabajamos</p>
+    <div class="brands-logos">
+      <div class="brand-item">Fester</div>
+      <div class="brand-item">Sherwin Williams</div>
+      <div class="brand-item">Marel</div>
+      <div class="brand-item">Comex</div>
+      <div class="brand-item">Retex</div>
+      <div class="brand-item">Berel</div>
+    </div>
+  </div>
+</div>
+
+<!-- CLIENTS -->
+<section class="clients" id="clientes">
+  <div class="section-inner">
+    <div class="section-tag">Clientes</div>
+    <h2 class="section-title">Empresas que<br><em>confían</em> en nosotros</h2>
+    <p class="section-lead">Hemos trabajado con algunas de las organizaciones más importantes de México.</p>
+    <div class="clients-grid">
+      <div class="client-cell">BUAP</div>
+      <div class="client-cell">Televisa</div>
+      <div class="client-cell">OXXO</div>
+      <div class="client-cell">Cinépolis</div>
+      <div class="client-cell">TEC de Monterrey</div>
+      <div class="client-cell">Pizza Hut</div>
+      <div class="client-cell">Caminos y Puentes Federales</div>
+      <div class="client-cell">FINSA</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="cta-bg-text">ÁLAMO</div>
+  <div class="cta-inner">
+    <div class="cta-text">
+      <h2>¿Listo para<br>tu proyecto?</h2>
+      <p>Contáctanos hoy y recibe una cotización sin compromiso.</p>
+    </div>
+    <div style="display:flex; gap:14px; flex-wrap:wrap;">
+      <a href="tel:2222370937" class="btn-white">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Llamar ahora
+      </a>
+      <a href="https://wa.me/5212223585123" class="btn-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">ÁLAMO <span>ACABADOS</span></div>
+        <p class="footer-desc">45 años siendo líderes en recubrimientos epóxicos, impermeabilización y pinturas industriales en México. Distribuidores y aplicadores certificados Fester.</p>
+        <div class="footer-contact">
+          <a href="tel:2222370937">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            222 237-0937
+          </a>
+          <a href="mailto:alamoacabados@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            alamoacabados@gmail.com
+          </a>
+          <a href="#">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Puebla, México
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-col-title">Servicios</div>
+        <ul class="footer-links">
+          <li><a href="#">Impermeabilización</a></li>
+          <li><a href="#">Pisos Epóxicos</a></li>
+          <li><a href="#">Pinturas Industriales</a></li>
+          <li><a href="#">Morteros</a></li>
+          <li><a href="#">Concretos Hidráulicos</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Empresa</div>
+        <ul class="footer-links">
+          <li><a href="#">Quiénes Somos</a></li>
+          <li><a href="#">Nuestros Proyectos</a></li>
+          <li><a href="#">Marcas que Manejamos</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Contacto Rápido</div>
+        <p style="font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 20px; font-weight: 300; line-height: 1.7;">¿Tienes un proyecto en mente? Contáctanos por WhatsApp y te respondemos de inmediato.</p>
+        <a href="https://wa.me/5212223585123" class="btn-wa" style="font-size: 13px; padding: 13px 20px;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escribir por WhatsApp
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Álamo Acabados S.A. de C.V. — Todos los derechos reservados</span>
+      <span class="footer-bottom-logo">ÁLAMO <span>ACABADOS</span></span>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/5212223585123" class="wa-float" title="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+</body>
+</html>
