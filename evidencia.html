@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evidencia de Trabajos | Alamo Acabados — Recubrimientos Epóxicos en Puebla</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #C8321A;
+            --red-dark: #9E2412;
+            --red-light: #E84B2F;
+            --navy: #0D1B2A;
+            --navy-mid: #1A2E44;
+            --cream: #F5F0E8;
+            --gray-light: #F0EDE7;
+            --text: #1A1A1A;
+            --text-muted: #5C6570;
+            --white: #FFFFFF;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Barlow', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* ========== TOPBAR ========== */
+        .topbar {
+            background: var(--navy);
+            padding: 9px 0;
+            font-size: 13px;
+            color: rgba(255,255,255,0.65);
+        }
+        .topbar-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; justify-content: flex-end; gap: 2rem; align-items: center;
+        }
+        .topbar a { color: rgba(255,255,255,0.65); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+        .topbar a:hover { color: var(--red-light); }
+        .topbar svg { width: 14px; height: 14px; }
+
+        /* ========== NAV ========== */
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+            position: sticky; top: 0; z-index: 100;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+        .nav-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            display: flex; align-items: center; justify-content: space-between;
+            height: 72px;
+        }
+        .logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 800; font-size: 26px;
+            color: var(--navy); letter-spacing: -0.5px; text-decoration: none;
+            display: flex; align-items: center; gap: 4px;
+        }
+        .logo span { color: var(--red); }
+        .logo-sub {
+            font-family: 'Barlow', sans-serif;
+            font-size: 9px; font-weight: 500; letter-spacing: 2px;
+            color: var(--text-muted); text-transform: uppercase;
+            display: block; margin-top: -4px;
+        }
+        .nav-links { display: flex; gap: 0; list-style: none; }
+        .nav-links a {
+            font-size: 13.5px; font-weight: 500; letter-spacing: 0.5px;
+            text-transform: uppercase; color: var(--text);
+            text-decoration: none; padding: 0 18px; height: 72px;
+            display: flex; align-items: center;
+            border-bottom: 3px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .nav-links a:hover { color: var(--red); border-bottom-color: var(--red); }
+        .nav-links a.active { color: var(--red); border-bottom-color: var(--red); font-weight: 600; }
+        .nav-cta {
+            background: var(--red); color: var(--white) !important;
+            border-bottom-color: transparent !important;
+            padding: 0 24px !important; border-radius: 2px;
+            transition: background 0.2s !important;
+        }
+        .nav-cta:hover { background: var(--red-dark) !important; }
+
+        /* ========== HERO ========== */
+        .page-hero {
+            background: var(--navy);
+            padding: 80px 0 70px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero-accent {
+            position: absolute;
+            right: -40px; top: 0; bottom: 0; width: 350px;
+            background: var(--red);
+            clip-path: polygon(20% 0%, 100% 0%, 100% 100%, 0% 100%);
+            opacity: 0.1;
+        }
+        .page-hero-line {
+            position: absolute; left: 0; bottom: 0; right: 0; height: 4px;
+            background: var(--red);
+        }
+        .page-hero-inner {
+            position: relative; z-index: 2;
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+        }
+        .section-tag-hero {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--red-light);
+            margin-bottom: 12px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .section-tag-hero::before {
+            content: ''; flex: 0 0 24px; height: 2px;
+            background: var(--red-light);
+        }
+        .page-hero h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(42px, 5vw, 68px); font-weight: 800;
+            text-transform: uppercase; letter-spacing: -1px;
+            line-height: 1; color: var(--white); margin-bottom: 16px;
+        }
+        .page-hero h1 em { color: var(--red-light); font-style: normal; }
+        .page-hero p {
+            font-size: 16px; font-weight: 300; line-height: 1.7;
+            color: rgba(255,255,255,0.6); max-width: 540px;
+        }
+
+        /* ========== CATEGORÍAS ========== */
+        .section { padding: 90px 0; }
+        .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        .section-header {
+            margin-bottom: 50px;
+        }
+        .section-tag {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 12px; font-weight: 700; letter-spacing: 3px;
+            text-transform: uppercase; color: var(--red); margin-bottom: 10px;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .section-tag::before { content: ''; flex: 0 0 24px; height: 2px; background: var(--red); }
+        .section-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(30px, 3.5vw, 44px); font-weight: 800;
+            text-transform: uppercase; letter-spacing: -0.5px; line-height: 1;
+            color: var(--navy); margin-bottom: 12px;
+        }
+        .section-title em { color: var(--red); font-style: normal; }
+        .section-lead {
+            font-size: 15px; font-weight: 300; line-height: 1.7;
+            color: var(--text-muted); max-width: 480px;
+        }
+        .section-alt {
+            background: var(--cream);
+        }
+
+        /* ========== GRID GALERÍA ========== */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2px;
+            background: rgba(0,0,0,0.06);
+            border: 2px solid rgba(0,0,0,0.06);
+        }
+        .gallery-card {
+            position: relative;
+            background: var(--white);
+            aspect-ratio: 4/3;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .gallery-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-card:hover { background: #FAFAF8; }
+        .gallery-card:hover img {
+            transform: scale(1.05);
+        }
+        .gallery-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0; height: 3px;
+            background: var(--red);
+            transition: width 0.35s ease;
+            z-index: 2;
+        }
+        .gallery-card:hover::after { width: 100%; }
+
+        .card-info {
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            padding: 28px 20px 16px;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.3s ease;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .gallery-card:hover .card-info {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .card-info span {
+            color: var(--white);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .card-info .card-date {
+            display: block;
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 400;
+            text-transform: none;
+            color: rgba(255,255,255,0.6);
+            margin-top: 2px;
+        }
+
+        /* ========== ANTES / DESPUÉS ========== */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2px;
+            background: rgba(0,0,0,0.06);
+            border: 2px solid rgba(0,0,0,0.06);
+        }
+        .comparison-card {
+            position: relative;
+            background: var(--white);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3px;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .comparison-card:hover {
+            background: #FAFAF8;
+        }
+        .comparison-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        .comparison-card:hover img {
+            transform: scale(1.03);
+        }
+        .comparison-label {
+            position: absolute;
+            top: 10px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            padding: 5px 12px;
+            border-radius: 2px;
+            z-index: 5;
+            pointer-events: none;
+        }
+        .comparison-label.label-before {
+            left: 10px;
+            background: rgba(200,50,26,0.9);
+            color: white;
+        }
+        .comparison-label.label-after {
+            right: 10px;
+            background: rgba(26,46,68,0.9);
+            color: white;
+        }
+        .comparison-divider {
+            position: absolute;
+            left: 50%;
+            top: 0; bottom: 0;
+            width: 2px;
+            background: rgba(255,255,255,0.5);
+            z-index: 4;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+        .comparison-card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--red);
+            transform: scaleX(0);
+            transition: transform 0.35s ease;
+            z-index: 6;
+        }
+        .comparison-card:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* ========== LIGHTBOX ========== */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(13,27,42,0.96);
+            z-index: 9999;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .lightbox.active {
+            display: flex;
+            opacity: 1;
+        }
+        .lightbox-img-container {
+            max-width: 90vw;
+            max-height: 75vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .lightbox-img-container img {
+            max-width: 100%;
+            max-height: 75vh;
+            object-fit: contain;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+            transition: opacity 0.25s ease;
+        }
+        .lb-close {
+            position: absolute;
+            top: 24px;
+            right: 32px;
+            background: none;
+            border: none;
+            color: rgba(255,255,255,0.7);
+            font-size: 2.2rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: color 0.2s;
+            font-family: 'Barlow', sans-serif;
+            line-height: 1;
+            padding: 8px;
+        }
+        .lb-close:hover { color: var(--white); }
+
+        .lb-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--white);
+            font-size: 1.8rem;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s;
+            font-family: 'Barlow', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
+        .lb-nav:hover {
+            background: rgba(255,255,255,0.18);
+            border-color: rgba(255,255,255,0.35);
+        }
+        .lb-prev { left: 24px; }
+        .lb-next { right: 24px; }
+        .lb-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.5);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            z-index: 10;
+        }
+        .lb-caption {
+            text-align: center;
+            color: rgba(255,255,255,0.7);
+            font-family: 'Barlow', sans-serif;
+            font-size: 0.9rem;
+            margin-top: 16px;
+            font-weight: 300;
+            max-width: 500px;
+        }
+        @media (max-width: 768px) {
+            .lb-prev { left: 8px; }
+            .lb-next { right: 8px; }
+            .lb-nav { width: 40px; height: 40px; font-size: 1.4rem; }
+            .lb-close { top: 16px; right: 16px; font-size: 1.8rem; }
+        }
+
+        /* ========== CTA ========== */
+        .cta-section {
+            background: var(--red);
+            padding: 90px 0;
+            position: relative; overflow: hidden;
+        }
+        .cta-bg-text {
+            position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 180px; font-weight: 800; text-transform: uppercase;
+            color: rgba(255,255,255,0.06); line-height: 1;
+            pointer-events: none; white-space: nowrap;
+        }
+        .cta-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+            position: relative; z-index: 2;
+            display: flex; align-items: center; justify-content: space-between;
+            gap: 40px; flex-wrap: wrap;
+        }
+        .cta-text h2 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(32px, 4vw, 50px); font-weight: 800;
+            text-transform: uppercase; color: var(--white); line-height: 1;
+        }
+        .cta-text p {
+            font-size: 15px; font-weight: 300; color: rgba(255,255,255,0.8);
+            margin-top: 10px;
+        }
+        .btn-white {
+            background: var(--white); color: var(--red);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 15px; font-weight: 700; letter-spacing: 1.5px;
+            text-transform: uppercase; padding: 18px 40px;
+            border: none; border-radius: 2px; cursor: pointer;
+            text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+            transition: opacity 0.2s, transform 0.15s; white-space: nowrap;
+        }
+        .btn-white:hover { opacity: 0.9; transform: translateY(-1px); }
+        .btn-wa {
+            background: #25D366; color: var(--white);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 15px; font-weight: 700; letter-spacing: 1.5px;
+            text-transform: uppercase; padding: 18px 40px;
+            border: none; border-radius: 2px; cursor: pointer;
+            text-decoration: none; display: inline-flex; align-items: center; gap: 10px;
+            transition: opacity 0.2s; white-space: nowrap;
+        }
+        .btn-wa:hover { opacity: 0.9; }
+
+        /* ========== FOOTER ========== */
+        footer { background: #07111C; padding: 64px 0 32px; }
+        .footer-inner {
+            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 48px; margin-bottom: 56px;
+        }
+        .footer-logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 800; font-size: 24px; color: var(--white); margin-bottom: 16px;
+            letter-spacing: -0.5px;
+        }
+        .footer-logo span { color: var(--red-light); }
+        .footer-desc {
+            font-size: 14px; font-weight: 300; line-height: 1.75;
+            color: rgba(255,255,255,0.4); margin-bottom: 24px;
+        }
+        .footer-contact a {
+            display: flex; align-items: center; gap: 10px;
+            font-size: 14px; color: rgba(255,255,255,0.5);
+            text-decoration: none; margin-bottom: 10px;
+            transition: color 0.2s;
+        }
+        .footer-contact a:hover { color: var(--white); }
+        .footer-contact svg { width: 14px; height: 14px; flex-shrink: 0; }
+        .footer-col-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 13px; font-weight: 700; letter-spacing: 2.5px;
+            text-transform: uppercase; color: rgba(255,255,255,0.3);
+            margin-bottom: 24px;
+        }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a {
+            font-size: 14px; color: rgba(255,255,255,0.5);
+            text-decoration: none; transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--white); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 28px;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 12px;
+            font-size: 13px; color: rgba(255,255,255,0.25);
+        }
+        .footer-bottom-logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-weight: 700; font-size: 15px;
+            color: rgba(255,255,255,0.3); letter-spacing: 0.5px;
+        }
+        .footer-bottom-logo span { color: rgba(200,50,26,0.7); }
+
+        /* ========== FLOATING WA ========== */
+        .wa-float {
+            position: fixed; bottom: 28px; right: 28px; z-index: 998;
+            background: #25D366; color: var(--white);
+            width: 54px; height: 54px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 4px 20px rgba(37,211,102,0.35);
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .wa-float:hover { transform: scale(1.08); box-shadow: 0 6px 28px rgba(37,211,102,0.45); }
+        .wa-float svg { width: 26px; height: 26px; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .footer-grid { grid-template-columns: 1fr; gap: 36px; }
+            .cta-inner { flex-direction: column; }
+            .comparison-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ==================== TOPBAR ==================== -->
+    <div class="topbar">
+        <div class="topbar-inner">
+            <a href="tel:2222370937">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                222 237-0937
+            </a>
+            <a href="mailto:alamoacabados@gmail.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                alamoacabados@gmail.com
+            </a>
+        </div>
+    </div>
+
+    <!-- ==================== NAV ==================== -->
+    <nav>
+        <div class="nav-inner">
+            <a href="index.html" class="logo">
+                ALAMO <span>ACABADOS</span>
+                <div>
+                    <span class="logo-sub">Recubrimientos · Impermeabilizantes · Pinturas</span>
+                </div>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="index.html#servicios">Servicios</a></li>
+                <li><a href="index.html#nosotros">Nosotros</a></li>
+                <li><a href="evidencia.html" class="active">Evidencia</a></li>
+                <li><a href="index.html#clientes">Clientes</a></li>
+                <li><a href="https://wa.me/5212223585123" class="nav-cta">Cotizar Proyecto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE HERO ==================== -->
+    <section class="page-hero">
+        <div class="page-hero-accent" aria-hidden="true"></div>
+        <div class="page-hero-line" aria-hidden="true"></div>
+        <div class="page-hero-inner">
+            <div class="section-tag-hero">Evidencia</div>
+            <h1>Nuestros<br><em>Trabajos</em></h1>
+            <p>Galería de proyectos reales. 45 años de experiencia reflejados en cada superficie.</p>
+        </div>
+    </section>
+
+    <!-- ==================== CATEGORÍA 1: PROCESO ==================== -->
+    <section class="section" id="proceso">
+        <div class="section-inner">
+            <div class="section-header">
+                <div class="section-tag">Categoría 01</div>
+                <h2 class="section-title">Proceso de <em>Aplicación</em></h2>
+                <p class="section-lead">Así trabajamos: con técnica, limpieza y precisión en cada proyecto.</p>
+            </div>
+
+            <div class="gallery-grid" id="gallery-proceso">
+                <div class="gallery-card" data-category="proceso" data-index="0" data-caption="Preparación de superficie · Julio 2025">
+                    <img src="assets/evidencia/20250715_145548.jpg" alt="Preparación de superficie antes de aplicación epóxica" loading="lazy">
+                    <div class="card-info"><span>Preparación</span><span class="card-date">Julio 2025</span></div>
+                </div>
+                <div class="gallery-card" data-category="proceso" data-index="1" data-caption="Aplicación con rodillo profesional · Septiembre 2025">
+                    <img src="assets/evidencia/20250906_111154.jpg" alt="Aplicación profesional de recubrimiento epóxico con rodillo" loading="lazy">
+                    <div class="card-info"><span>Aplicación</span><span class="card-date">Septiembre 2025</span></div>
+                </div>
+                <div class="gallery-card" data-category="proceso" data-index="2" data-caption="Técnica de precisión · Agosto 2025">
+                    <img src="assets/evidencia/20250819_114754.jpg" alt="Detalle de técnica de aplicación de piso epóxico" loading="lazy">
+                    <div class="card-info"><span>Detalle técnico</span><span class="card-date">Agosto 2025</span></div>
+                </div>
+                <div class="gallery-card" data-category="proceso" data-index="3" data-caption="Equipo trabajando en área industrial · Noviembre 2025">
+                    <img src="assets/evidencia/20251118_122234.jpg" alt="Equipo trabajando en área industrial amplia" loading="lazy">
+                    <div class="card-info"><span>Equipo en acción</span><span class="card-date">Noviembre 2025</span></div>
+                </div>
+                <div class="gallery-card" data-category="proceso" data-index="4" data-caption="Proyecto de gran formato · Diciembre 2025">
+                    <img src="assets/evidencia/20251218_100739.jpg" alt="Aplicación de recubrimiento en superficie de gran formato" loading="lazy">
+                    <div class="card-info"><span>Gran formato</span><span class="card-date">Diciembre 2025</span></div>
+                </div>
+                <div class="gallery-card" data-category="proceso" data-index="5" data-caption="Aplicación en exteriores · Septiembre 2025">
+                    <img src="assets/evidencia/20250917_123051.jpg" alt="Trabajo de recubrimiento en exteriores" loading="lazy">
+                    <div class="card-info"><span>Exteriores</span><span class="card-date">Septiembre 2025</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CATEGORÍA 2: TERMINADOS ==================== -->
+    <section class="section section-alt" id="terminados">
+        <div class="section-inner">
+            <div class="section-header">
+                <div class="section-tag">Categoría 02</div>
+                <h2 class="section-title">Pisos Epóxicos <em>Terminados</em></h2>
+                <p class="section-lead">Resultados que hablan por sí solos: brillo, resistencia y estética de primer nivel.</p>
+            </div>
+
+            <div class="gallery-grid" id="gallery-terminados">
+                <div class="gallery-card" data-category="terminados" data-index="0" data-caption="Acabado espejo gris metálico · Agosto 2025">
+                    <img src="assets/evidencia/20250821_110759.jpg" alt="Piso epóxico gris metálico acabado espejo" loading="lazy">
+                    <div class="card-info"><span>Acabado Espejo</span><span class="card-date">Agosto 2025</span></div>
+                </div>
+                <div class="gallery-card" data-category="terminados" data-index="1" data-caption="Brillo profesional en área comercial · Agosto 2025">
+                    <img src="assets/evidencia/20250821_115645.jpg" alt="Piso epóxico con brillo profesional en área comercial" loading="lazy">
+                    <div class="card-info"><span>Brillo Profesional</span><span class="card-date">Agosto 2025</span></div>
+                </div>
+                <div class="gallery-card" data-category="terminados" data-index="2" data-caption="Área comercial terminada · Agosto 2025">
+                    <img src="assets/evidencia/20250822_134334.jpg" alt="Gran superficie comercial con piso epóxico terminado" loading="lazy">
+                    <div class="card-info"><span>Área Comercial</span><span class="card-date">Agosto 2025</span></div>
+                </div>
+                <div class="gallery-card" data-category="terminados" data-index="3" data-caption="Acabado decorativo con escamas · Noviembre 2025">
+                    <img src="assets/evidencia/20251105_125530.jpg" alt="Piso epóxico decorativo con escamas" loading="lazy">
+                    <div class="card-info"><span>Decorativo</span><span class="card-date">Noviembre 2025</span></div>
+                </div>
+                <div class="gallery-card" data-category="terminados" data-index="4" data-caption="Elegancia en tono beige · Diciembre 2025">
+                    <img src="assets/evidencia/20251215_110528.jpg" alt="Piso epóxico color beige elegante" loading="lazy">
+                    <div class="card-info"><span>Estilo Beige</span><span class="card-date">Diciembre 2025</span></div>
+                </div>
+                <div class="gallery-card" data-category="terminados" data-index="5" data-caption="Terminado impecable reciente · Enero 2026">
+                    <img src="assets/evidencia/20260106_111840.jpg" alt="Piso epóxico impecable recién terminado" loading="lazy">
+                    <div class="card-info"><span>Reciente</span><span class="card-date">Enero 2026</span></div>
+                </div>
+                <div class="gallery-card" data-category="terminados" data-index="6" data-caption="Resistencia industrial pesada · Enero 2026">
+                    <img src="assets/evidencia/20260128_153911.jpg" alt="Piso industrial con recubrimiento epóxico de alto tránsito" loading="lazy">
+                    <div class="card-info"><span>Uso Industrial</span><span class="card-date">Enero 2026</span></div>
+                </div>
+                <div class="gallery-card" data-category="terminados" data-index="7" data-caption="Detalle de textura y brillo · Febrero 2026">
+                    <img src="assets/evidencia/20260217_172318.jpg" alt="Detalle macro de textura y brillo epóxico" loading="lazy">
+                    <div class="card-info"><span>Detalle Macro</span><span class="card-date">Febrero 2026</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CATEGORÍA 3: ANTES Y DESPUÉS ==================== -->
+    <section class="section" id="antes-despues">
+        <div class="section-inner">
+            <div class="section-header">
+                <div class="section-tag">Categoría 03</div>
+                <h2 class="section-title">Antes y <em>Después</em></h2>
+                <p class="section-lead">El impacto real de nuestro trabajo. Transformaciones comprobables.</p>
+            </div>
+
+            <div class="comparison-grid" id="gallery-comparacion">
+                <!-- Par 1 -->
+                <div class="comparison-card" data-category="comparacion" data-index="0" data-caption="Transformación de superficie interior · Agosto 2025">
+                    <span class="comparison-label label-before">Antes</span>
+                    <span class="comparison-label label-after">Después</span>
+                    <div class="comparison-divider" aria-hidden="true"></div>
+                    <img src="assets/evidencia/20250819_114653.jpg" alt="Superficie antes del tratamiento" loading="lazy">
+                    <img src="assets/evidencia/20250819_114848.jpg" alt="Misma superficie después del recubrimiento epóxico" loading="lazy">
+                </div>
+                <!-- Par 2 -->
+                <div class="comparison-card" data-category="comparacion" data-index="1" data-caption="Renovación de exterior · Agosto 2025">
+                    <span class="comparison-label label-before">Antes</span>
+                    <span class="comparison-label label-after">Después</span>
+                    <div class="comparison-divider" aria-hidden="true"></div>
+                    <img src="assets/evidencia/20250822_140640.jpg" alt="Exterior antes del recubrimiento" loading="lazy">
+                    <img src="assets/evidencia/20250822_140643.jpg" alt="Exterior transformado con recubrimiento" loading="lazy">
+                </div>
+                <!-- Par 3 -->
+                <div class="comparison-card" data-category="comparacion" data-index="2" data-caption="De concreto dañado a epóxico perfecto · Enero 2026">
+                    <span class="comparison-label label-before">Antes</span>
+                    <span class="comparison-label label-after">Después</span>
+                    <div class="comparison-divider" aria-hidden="true"></div>
+                    <img src="assets/evidencia/20260128_092505.jpg" alt="Superficie deteriorada antes de intervención" loading="lazy">
+                    <img src="assets/evidencia/20260128_095210.jpg" alt="Renovación completa con sistema epóxico" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA ==================== -->
+    <section class="cta-section">
+        <div class="cta-bg-text" aria-hidden="true">ÁLAMO</div>
+        <div class="cta-inner">
+            <div class="cta-text">
+                <h2>¿Te gusta lo<br>que ves?</h2>
+                <p>Estos resultados pueden ser tuyos. Solicita tu cotización sin compromiso.</p>
+            </div>
+            <div style="display:flex; gap:14px; flex-wrap:wrap;">
+                <a href="tel:2222370937" class="btn-white">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                    Llamar ahora
+                </a>
+                <a href="https://wa.me/5212223585123" class="btn-wa">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">ÁLAMO <span>ACABADOS</span></div>
+                    <p class="footer-desc">45 años siendo líderes en recubrimientos epóxicos, impermeabilización y pinturas industriales en México. Distribuidores y aplicadores certificados Fester.</p>
+                    <div class="footer-contact">
+                        <a href="tel:2222370937">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+                            222 237-0937
+                        </a>
+                        <a href="mailto:alamoacabados@gmail.com">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            alamoacabados@gmail.com
+                        </a>
+                        <a href="#">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Puebla, México
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <div class="footer-col-title">Servicios</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html#servicios">Impermeabilización</a></li>
+                        <li><a href="index.html#servicios">Pisos Epóxicos</a></li>
+                        <li><a href="index.html#servicios">Pinturas Industriales</a></li>
+                        <li><a href="index.html#servicios">Morteros</a></li>
+                        <li><a href="index.html#servicios">Concretos Hidráulicos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">Empresa</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html#nosotros">Quiénes Somos</a></li>
+                        <li><a href="evidencia.html">Nuestros Proyectos</a></li>
+                        <li><a href="index.html">Marcas que Manejamos</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="footer-col-title">Contacto Rápido</div>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 20px; font-weight: 300; line-height: 1.7;">¿Tienes un proyecto en mente? Contáctanos por WhatsApp y te respondemos de inmediato.</p>
+                    <a href="https://wa.me/5212223585123" class="btn-wa" style="font-size: 13px; padding: 13px 20px;">
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                        Escribir por WhatsApp
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2025 Álamo Acabados S.A. de C.V. — Todos los derechos reservados</span>
+                <span class="footer-bottom-logo">ÁLAMO <span>ACABADOS</span></span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== FLOATING WA ==================== -->
+    <a href="https://wa.me/5212223585123" class="wa-float" title="Contactar por WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- ==================== LIGHTBOX ==================== -->
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lb-close" id="lb-close" aria-label="Cerrar lightbox">&times;</button>
+        <button class="lb-nav lb-prev" id="lb-prev" aria-label="Anterior">&#10094;</button>
+        <button class="lb-nav lb-next" id="lb-next" aria-label="Siguiente">&#10095;</button>
+        <div class="lb-img-container">
+            <img src="" alt="" id="lb-img">
+        </div>
+        <p class="lb-caption" id="lb-caption"></p>
+        <span class="lb-counter" id="lb-counter"></span>
+    </div>
+
+    <!-- ==================== LIGHTBOX SCRIPT ==================== -->
+    <script>
+        (function() {
+            const lightbox = document.getElementById('lightbox');
+            const lbImg = document.getElementById('lb-img');
+            const lbCaption = document.getElementById('lb-caption');
+            const lbCounter = document.getElementById('lb-counter');
+            const lbClose = document.getElementById('lb-close');
+            const lbPrev = document.getElementById('lb-prev');
+            const lbNext = document.getElementById('lb-next');
+
+            let currentCategory = null;
+            let currentItems = [];
+            let currentIndex = 0;
+
+            // Agrupar items por categoría
+            const categories = {};
+            document.querySelectorAll('.gallery-card[data-category], .comparison-card[data-category]').forEach(card => {
+                const cat = card.dataset.category;
+                if (!categories[cat]) categories[cat] = [];
+                categories[cat].push(card);
+            });
+
+            // Click en cualquier card
+            document.querySelectorAll('.gallery-card, .comparison-card').forEach(card => {
+                card.addEventListener('click', function() {
+                    const cat = this.dataset.category;
+                    currentCategory = cat;
+                    currentItems = categories[cat];
+                    currentIndex = parseInt(this.dataset.index);
+                    openLightbox();
+                });
+            });
+
+            function openLightbox() {
+                updateLightboxImage();
+                lightbox.classList.add('active');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightbox.classList.remove('active');
+                lightbox.setAttribute('aria-hidden', 'true');
+                document.body.style.overflow = '';
+            }
+
+            function updateLightboxImage() {
+                const item = currentItems[currentIndex];
+                let imgSrc;
+                // Para cards de comparación (antes/después), mostrar la imagen "después" (segunda)
+                if (item.classList.contains('comparison-card')) {
+                    imgSrc = item.querySelectorAll('img')[1].src;
+                } else {
+                    imgSrc = item.querySelector('img').src;
+                }
+                lbImg.src = imgSrc;
+                lbCaption.textContent = item.dataset.caption || '';
+                lbCounter.textContent = (currentIndex + 1) + ' / ' + currentItems.length;
+            }
+
+            function showPrev() {
+                currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
+                updateLightboxImage();
+            }
+
+            function showNext() {
+                currentIndex = (currentIndex + 1) % currentItems.length;
+                updateLightboxImage();
+            }
+
+            // Eventos
+            lbClose.addEventListener('click', closeLightbox);
+            lbPrev.addEventListener('click', showPrev);
+            lbNext.addEventListener('click', showNext);
+
+            // Cerrar con click fuera de la imagen
+            lightbox.addEventListener('click', function(e) {
+                if (e.target === lightbox) closeLightbox();
+            });
+
+            // Teclado
+            document.addEventListener('keydown', function(e) {
+                if (!lightbox.classList.contains('active')) return;
+                if (e.key === 'Escape') closeLightbox();
+                if (e.key === 'ArrowLeft') showPrev();
+                if (e.key === 'ArrowRight') showNext();
+            });
+        })();
+    </script>
+
+</body>
+</html>
