@@ -139,9 +139,7 @@
         /* ========== CATEGORÍAS ========== */
         .section { padding: 90px 0; }
         .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
-        .section-header {
-            margin-bottom: 50px;
-        }
+        .section-header { margin-bottom: 50px; }
         .section-tag {
             font-family: 'Barlow Condensed', sans-serif;
             font-size: 12px; font-weight: 700; letter-spacing: 3px;
@@ -160,9 +158,7 @@
             font-size: 15px; font-weight: 300; line-height: 1.7;
             color: var(--text-muted); max-width: 480px;
         }
-        .section-alt {
-            background: var(--cream);
-        }
+        .section-alt { background: var(--cream); }
 
         /* ========== GRID GALERÍA ========== */
         .gallery-grid {
@@ -187,9 +183,7 @@
             transition: transform 0.5s ease;
         }
         .gallery-card:hover { background: #FAFAF8; }
-        .gallery-card:hover img {
-            transform: scale(1.05);
-        }
+        .gallery-card:hover img { transform: scale(1.05); }
         .gallery-card::after {
             content: '';
             position: absolute;
@@ -253,18 +247,14 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        .comparison-card:hover {
-            background: #FAFAF8;
-        }
+        .comparison-card:hover { background: #FAFAF8; }
         .comparison-card img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.4s ease;
         }
-        .comparison-card:hover img {
-            transform: scale(1.03);
-        }
+        .comparison-card:hover img { transform: scale(1.03); }
         .comparison-label {
             position: absolute;
             top: 10px;
@@ -308,112 +298,139 @@
             transition: transform 0.35s ease;
             z-index: 6;
         }
-        .comparison-card:hover::after {
-            transform: scaleX(1);
-        }
+        .comparison-card:hover::after { transform: scaleX(1); }
 
-        /* ========== LIGHTBOX ========== */
-        .lightbox {
+        /* ========== MODAL ESTILO FACEBOOK ========== */
+        .modal-overlay {
             position: fixed;
             inset: 0;
-            background: rgba(13,27,42,0.96);
+            background: rgba(0, 0, 0, 0.85);
             z-index: 9999;
-            display: none;
+            display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
             opacity: 0;
-            transition: opacity 0.3s ease;
+            visibility: hidden;
+            transition: opacity 0.25s ease, visibility 0.25s ease;
         }
-        .lightbox.active {
-            display: flex;
+        .modal-overlay.active {
             opacity: 1;
+            visibility: visible;
         }
-        .lightbox-img-container {
+        .modal-container {
+            position: relative;
             max-width: 90vw;
-            max-height: 75vh;
+            max-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+        .modal-image-wrapper {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            max-width: 85vw;
+            max-height: 75vh;
+            overflow: hidden;
+            border-radius: 4px;
         }
-        .lightbox-img-container img {
+        .modal-image-wrapper img {
             max-width: 100%;
             max-height: 75vh;
             object-fit: contain;
             border-radius: 4px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-            transition: opacity 0.25s ease;
+            transition: opacity 0.2s ease;
         }
-        .lb-close {
+        .modal-close {
             position: absolute;
-            top: 24px;
-            right: 32px;
-            background: none;
+            top: -12px;
+            right: -12px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
             border: none;
-            color: rgba(255,255,255,0.7);
-            font-size: 2.2rem;
-            cursor: pointer;
-            z-index: 10;
-            transition: color 0.2s;
-            font-family: 'Barlow', sans-serif;
-            line-height: 1;
-            padding: 8px;
-        }
-        .lb-close:hover { color: var(--white); }
-
-        .lb-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.08);
-            border: 1px solid rgba(255,255,255,0.15);
-            color: var(--white);
-            font-size: 1.8rem;
-            width: 52px;
-            height: 52px;
             border-radius: 50%;
+            color: #fff;
+            font-size: 1.3rem;
             cursor: pointer;
             z-index: 10;
-            transition: all 0.2s;
-            font-family: 'Barlow', sans-serif;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: background 0.2s;
             line-height: 1;
         }
-        .lb-nav:hover {
-            background: rgba(255,255,255,0.18);
-            border-color: rgba(255,255,255,0.35);
-        }
-        .lb-prev { left: 24px; }
-        .lb-next { right: 24px; }
-        .lb-counter {
+        .modal-close:hover { background: rgba(255,255,255,0.3); }
+        .modal-nav {
             position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255,255,255,0.5);
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 38px;
+            height: 38px;
+            background: rgba(255,255,255,0.12);
+            backdrop-filter: blur(4px);
+            border: none;
+            border-radius: 50%;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
             z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+            line-height: 1;
         }
-        .lb-caption {
-            text-align: center;
+        .modal-nav:hover { background: rgba(255,255,255,0.3); }
+        .modal-prev { left: 10px; }
+        .modal-next { right: 10px; }
+        .modal-caption {
+            margin-top: 14px;
             color: rgba(255,255,255,0.7);
             font-family: 'Barlow', sans-serif;
             font-size: 0.9rem;
-            margin-top: 16px;
             font-weight: 300;
+            text-align: center;
             max-width: 500px;
         }
+        .modal-counter {
+            color: rgba(255,255,255,0.4);
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
         @media (max-width: 768px) {
-            .lb-prev { left: 8px; }
-            .lb-next { right: 8px; }
-            .lb-nav { width: 40px; height: 40px; font-size: 1.4rem; }
-            .lb-close { top: 16px; right: 16px; font-size: 1.8rem; }
+            .modal-container {
+                max-width: 95vw;
+                padding: 10px;
+            }
+            .modal-image-wrapper {
+                max-width: 95vw;
+                max-height: 70vh;
+            }
+            .modal-close {
+                top: -8px;
+                right: -8px;
+                width: 30px;
+                height: 30px;
+                font-size: 1rem;
+            }
+            .modal-nav {
+                width: 30px;
+                height: 30px;
+                font-size: 0.9rem;
+            }
+            .modal-prev { left: 4px; }
+            .modal-next { right: 4px; }
         }
 
         /* ========== CTA ========== */
@@ -467,9 +484,7 @@
 
         /* ========== FOOTER ========== */
         footer { background: #07111C; padding: 64px 0 32px; }
-        .footer-inner {
-            max-width: 1200px; margin: 0 auto; padding: 0 2rem;
-        }
+        .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1.5fr;
@@ -794,34 +809,36 @@
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     </a>
 
-    <!-- ==================== LIGHTBOX ==================== -->
-    <div class="lightbox" id="lightbox" aria-hidden="true">
-        <button class="lb-close" id="lb-close" aria-label="Cerrar lightbox">&times;</button>
-        <button class="lb-nav lb-prev" id="lb-prev" aria-label="Anterior">&#10094;</button>
-        <button class="lb-nav lb-next" id="lb-next" aria-label="Siguiente">&#10095;</button>
-        <div class="lb-img-container">
-            <img src="" alt="" id="lb-img">
+    <!-- ==================== MODAL ESTILO FACEBOOK ==================== -->
+    <div class="modal-overlay" id="modal-overlay" aria-hidden="true">
+        <div class="modal-container">
+            <button class="modal-close" id="modal-close" aria-label="Cerrar">&times;</button>
+            <button class="modal-nav modal-prev" id="modal-prev" aria-label="Anterior">&#10094;</button>
+            <button class="modal-nav modal-next" id="modal-next" aria-label="Siguiente">&#10095;</button>
+            <div class="modal-image-wrapper">
+                <img src="" alt="" id="modal-img">
+            </div>
+            <p class="modal-caption" id="modal-caption"></p>
+            <span class="modal-counter" id="modal-counter"></span>
         </div>
-        <p class="lb-caption" id="lb-caption"></p>
-        <span class="lb-counter" id="lb-counter"></span>
     </div>
 
-    <!-- ==================== LIGHTBOX SCRIPT ==================== -->
+    <!-- ==================== MODAL SCRIPT ==================== -->
     <script>
         (function() {
-            const lightbox = document.getElementById('lightbox');
-            const lbImg = document.getElementById('lb-img');
-            const lbCaption = document.getElementById('lb-caption');
-            const lbCounter = document.getElementById('lb-counter');
-            const lbClose = document.getElementById('lb-close');
-            const lbPrev = document.getElementById('lb-prev');
-            const lbNext = document.getElementById('lb-next');
+            const overlay = document.getElementById('modal-overlay');
+            const modalImg = document.getElementById('modal-img');
+            const modalCaption = document.getElementById('modal-caption');
+            const modalCounter = document.getElementById('modal-counter');
+            const btnClose = document.getElementById('modal-close');
+            const btnPrev = document.getElementById('modal-prev');
+            const btnNext = document.getElementById('modal-next');
 
             let currentCategory = null;
             let currentItems = [];
             let currentIndex = 0;
 
-            // Agrupar items por categoría
+            // Categorías
             const categories = {};
             document.querySelectorAll('.gallery-card[data-category], .comparison-card[data-category]').forEach(card => {
                 const cat = card.dataset.category;
@@ -836,61 +853,61 @@
                     currentCategory = cat;
                     currentItems = categories[cat];
                     currentIndex = parseInt(this.dataset.index);
-                    openLightbox();
+                    openModal();
                 });
             });
 
-            function openLightbox() {
-                updateLightboxImage();
-                lightbox.classList.add('active');
-                lightbox.setAttribute('aria-hidden', 'false');
+            function openModal() {
+                updateModalImage();
+                overlay.classList.add('active');
+                overlay.setAttribute('aria-hidden', 'false');
                 document.body.style.overflow = 'hidden';
             }
 
-            function closeLightbox() {
-                lightbox.classList.remove('active');
-                lightbox.setAttribute('aria-hidden', 'true');
+            function closeModal() {
+                overlay.classList.remove('active');
+                overlay.setAttribute('aria-hidden', 'true');
                 document.body.style.overflow = '';
             }
 
-            function updateLightboxImage() {
+            function updateModalImage() {
                 const item = currentItems[currentIndex];
                 let imgSrc;
-                // Para cards de comparación (antes/después), mostrar la imagen "después" (segunda)
                 if (item.classList.contains('comparison-card')) {
+                    // En comparacion-card, mostramos la imagen "después" (la segunda)
                     imgSrc = item.querySelectorAll('img')[1].src;
                 } else {
                     imgSrc = item.querySelector('img').src;
                 }
-                lbImg.src = imgSrc;
-                lbCaption.textContent = item.dataset.caption || '';
-                lbCounter.textContent = (currentIndex + 1) + ' / ' + currentItems.length;
+                modalImg.src = imgSrc;
+                modalCaption.textContent = item.dataset.caption || '';
+                modalCounter.textContent = (currentIndex + 1) + ' / ' + currentItems.length;
             }
 
             function showPrev() {
                 currentIndex = (currentIndex - 1 + currentItems.length) % currentItems.length;
-                updateLightboxImage();
+                updateModalImage();
             }
 
             function showNext() {
                 currentIndex = (currentIndex + 1) % currentItems.length;
-                updateLightboxImage();
+                updateModalImage();
             }
 
             // Eventos
-            lbClose.addEventListener('click', closeLightbox);
-            lbPrev.addEventListener('click', showPrev);
-            lbNext.addEventListener('click', showNext);
+            btnClose.addEventListener('click', closeModal);
+            btnPrev.addEventListener('click', showPrev);
+            btnNext.addEventListener('click', showNext);
 
-            // Cerrar con click fuera de la imagen
-            lightbox.addEventListener('click', function(e) {
-                if (e.target === lightbox) closeLightbox();
+            // Cerrar clickeando fuera de la imagen (en el overlay)
+            overlay.addEventListener('click', function(e) {
+                if (e.target === overlay) closeModal();
             });
 
             // Teclado
             document.addEventListener('keydown', function(e) {
-                if (!lightbox.classList.contains('active')) return;
-                if (e.key === 'Escape') closeLightbox();
+                if (!overlay.classList.contains('active')) return;
+                if (e.key === 'Escape') closeModal();
                 if (e.key === 'ArrowLeft') showPrev();
                 if (e.key === 'ArrowRight') showNext();
             });
